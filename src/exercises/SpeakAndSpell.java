@@ -1,32 +1,30 @@
 package exercises;
 
-import voce.SpeechSynthesizer;
+import javax.swing.JOptionPane;
 
-/**
- * The first Speak & Spell was introduced at the summer Consumer Electronics
- * Show in June 1978, making it one of the earliest hand-held electronic devices
- * with a visual display to use interchangeable game cartridges. 
- * It was my favorite game as a kid.
- * 
- * https://www.youtube.com/watch?v=qM8FcN0aAvU
- **/
+import voce.SpeechSynthesizer;
 
 public class SpeakAndSpell {
 
 	public static void main(String[] args) {
-		// 1. Use the speak method to say the word. "e.g. spell mandlebrot"
+		JOptionPane.showMessageDialog(null, "World of Warcraft spelling challenge");
+		String[] wordsToSpell = { "Khadgar", "Arthas", "Illidan Stormrage ", "Anduin Lothar", "Thrall" };
+		int score = 0;
+		for (int i = 0; i < wordsToSpell.length; i++) {
+			speak("spell " + wordsToSpell[i]);
+			String answer = JOptionPane.showInputDialog("Spell the name");
 
-		// 2. Catch the user's answer in a String
+			if (answer.equals(wordsToSpell[i])) {
+				JOptionPane.showMessageDialog(null, "Nice spelling! Correct!");
+				score++;
+			} else {
+				JOptionPane.showMessageDialog(null, "Try harder! Wrong answer!");
+			}
 
-		// 3. If the user spelled the word correctly, speak "correct"
+		}
 
-		// 4. Otherwise say "wrong"
+		JOptionPane.showMessageDialog(null, "Your final score is " + score);
 
-		// 5. Repeat the process for other words
-		
-		// 6. Calculate the user's score and give it to them at the end of the game 
-		
-		
 	}
 
 	static void speak(String words) {
